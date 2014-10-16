@@ -1,0 +1,20 @@
+{
+    "builders": [{
+        "type": "digitalocean",
+        "api_key": "5c936355ed264981cb5a2ffafe5a51cb",
+        "client_id": "8a88c783f978759c20480b243510dfa1",
+        "region_id": 4,
+        "image_id": 3781322,
+        "snapshot_name": "nagios-monitoring",
+        "state_timeout": "60m"
+    }],
+
+    "provisioners": [{
+        "type": "shell",
+        "script": "install_nagios.sh"
+    },{
+        "type": "file",
+        "source": "localhost.cfg",
+        "destination": "/usr/local/nagios/etc/objects/localhost.cfg"
+    }]
+}
